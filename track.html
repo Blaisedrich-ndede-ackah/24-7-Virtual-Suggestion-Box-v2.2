@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your submission using your reference token.">
+  <title>Track Submission — 24/7 Virtual Suggestion Box</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📬</text></svg>">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/track.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Virtual Suggestion Box
+      </a>
+      <nav class="site-nav">
+        <a href="/submit.html">Submit</a>
+        <a href="/track.html" class="active">Track</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="track-page">
+    <div class="container">
+      <div class="track-header">
+        <h1>Track Your Submission</h1>
+        <p>Enter the reference token you received when you submitted your feedback.</p>
+      </div>
+
+      <!-- Token Input -->
+      <div class="track-input-wrapper">
+        <div class="track-input-card">
+          <form id="track-form" class="track-form">
+            <input type="text" id="token-input" class="form-input" placeholder="Enter token (e.g., VSB-A3F92K)" autocomplete="off" spellcheck="false">
+            <button type="submit" id="track-btn" class="btn btn-primary track-btn">
+              <span class="btn-text">Track</span>
+              <span class="spinner"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="track-error" class="track-error">
+        <svg class="track-error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <h3>Submission Not Found</h3>
+        <p>We couldn't find a submission with that token. Please double-check your token and try again.</p>
+      </div>
+
+      <!-- Submission Detail -->
+      <div id="submission-detail" class="submission-detail">
+
+        <!-- Resolved Banner -->
+        <div id="resolved-banner" class="resolved-banner">
+          <p>✅ This submission has been resolved.</p>
+          <div class="resolved-time" id="resolved-time"></div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="detail-card">
+          <div class="detail-header">
+            <div>
+              <h3 id="detail-subject" style="margin-bottom:0.25rem;">—</h3>
+              <span id="detail-token" style="font-family:var(--font-mono);font-size:0.813rem;color:var(--text-muted);">—</span>
+            </div>
+            <div id="detail-status"></div>
+          </div>
+
+          <div class="detail-meta">
+            <div class="meta-item">
+              <span class="meta-label">Category</span>
+              <span class="meta-value" id="detail-category">—</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Submitted</span>
+              <span class="meta-value" id="detail-date">—</span>
+            </div>
+          </div>
+
+          <!-- Countdown -->
+          <div id="deadline-section" class="deadline-section" style="display:none;">
+            <svg class="deadline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span class="deadline-text" id="deadline-text">—</span>
+          </div>
+        </div>
+
+        <!-- Message Thread -->
+        <div class="thread-card">
+          <div class="thread-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Conversation
+          </div>
+          <div id="thread-messages" class="thread-messages">
+            <div class="empty-state"><p>No messages yet.</p></div>
+          </div>
+
+          <!-- Reply Box -->
+          <div id="reply-box" class="reply-box">
+            <form id="reply-form" class="reply-form">
+              <textarea id="reply-input" class="form-textarea" placeholder="Type your reply..." maxlength="1000"></textarea>
+              <button type="submit" id="reply-btn" class="btn btn-primary reply-btn">
+                <span class="btn-text">Send</span>
+                <span class="spinner"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/submit.html">Submit Feedback</a>
+        </div>
+        <p class="footer-copy">24/7 Virtual Suggestion Box &mdash; Secure. Anonymous. Confidential.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/track.js"></script>
+</body>
+</html>

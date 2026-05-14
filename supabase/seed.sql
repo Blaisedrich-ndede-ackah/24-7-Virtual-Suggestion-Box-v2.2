@@ -1,0 +1,35 @@
+-- ═══════════════════════════════════════════════════════════════
+-- SEED.SQL — Admin User Setup Instructions
+-- 24/7 Virtual Suggestion Box
+-- ═══════════════════════════════════════════════════════════════
+--
+-- ⚠️ DO NOT create admin users via SQL. Use the Supabase Dashboard.
+--
+-- INSTRUCTIONS:
+-- ──────────────────────────────────────────────────────────────
+-- 1. Go to your Supabase Dashboard: https://app.supabase.com
+-- 2. Select your project
+-- 3. Navigate to: Authentication > Users
+-- 4. Click "Add User" > "Create New User"
+-- 5. Enter the admin email and a strong password
+-- 6. Check "Auto Confirm User" so no email verification is needed
+-- 7. Click "Create User"
+--
+-- That's it! The admin can now log in via /admin/login.html
+-- using the email and password you just set.
+--
+-- SECURITY NOTES:
+-- ──────────────────────────────────────────────────────────────
+-- - There is NO self-registration. Only admins created via the
+--   Supabase Dashboard can log in.
+-- - Use a strong, unique password (min 12 characters recommended).
+-- - The admin can change their password from the dashboard
+--   Settings panel after logging in.
+-- - You can create multiple admin users if needed. All
+--   authenticated users have admin access (controlled by RLS).
+--
+-- NO DEMO DATA:
+-- ──────────────────────────────────────────────────────────────
+-- This system launches empty. No seed data is inserted.
+-- Submissions, messages, and notifications will populate
+-- as users interact with the system.

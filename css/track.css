@@ -1,0 +1,359 @@
+/* ═══════════════════════════════════════════
+   TRACK.CSS — User Tracking Page Styles
+   ═══════════════════════════════════════════ */
+
+.track-page {
+  padding: 2rem 0 4rem;
+}
+
+.track-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.track-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.track-header p {
+  color: var(--text-muted);
+  font-size: 0.938rem;
+}
+
+/* Token Input */
+.track-input-wrapper {
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.track-input-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+}
+
+.track-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.track-form .form-input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.025em;
+}
+
+.track-form .btn {
+  flex-shrink: 0;
+}
+
+.track-btn .spinner {
+  display: none;
+}
+
+.track-btn.loading .btn-text {
+  display: none;
+}
+
+.track-btn.loading .spinner {
+  display: inline-block;
+}
+
+/* ─── Submission Detail ─── */
+.submission-detail {
+  display: none;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.submission-detail.visible {
+  display: block;
+}
+
+.detail-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.meta-value {
+  font-size: 0.938rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Countdown */
+.deadline-section {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.deadline-section.urgent {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.deadline-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+}
+
+.deadline-section.urgent .deadline-icon {
+  color: var(--danger);
+}
+
+.deadline-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.deadline-section.urgent .deadline-text {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ─── Message Thread ─── */
+.thread-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.thread-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.thread-messages {
+  padding: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Chat Bubbles */
+.msg-bubble {
+  max-width: 80%;
+  position: relative;
+}
+
+.msg-bubble-user {
+  align-self: flex-end;
+}
+
+.msg-bubble-admin {
+  align-self: flex-start;
+}
+
+.msg-sender {
+  font-size: 0.688rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  padding: 0 0.5rem;
+}
+
+.msg-bubble-user .msg-sender {
+  text-align: right;
+  color: var(--primary);
+}
+
+.msg-bubble-admin .msg-sender {
+  color: var(--accent);
+}
+
+.msg-content {
+  padding: 0.875rem 1.125rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.msg-bubble-user .msg-content {
+  background: var(--primary);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-bubble-admin .msg-content {
+  background: var(--bg);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.msg-time {
+  font-size: 0.688rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+  padding: 0 0.5rem;
+}
+
+.msg-bubble-user .msg-time {
+  text-align: right;
+}
+
+/* Reply Box */
+.reply-box {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.reply-form {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.reply-form .form-textarea {
+  flex: 1;
+  min-height: 60px;
+  max-height: 150px;
+  resize: vertical;
+  font-size: 0.875rem;
+}
+
+.reply-btn .spinner {
+  display: none;
+}
+
+.reply-btn.loading .btn-text {
+  display: none;
+}
+
+.reply-btn.loading .spinner {
+  display: inline-block;
+}
+
+/* Resolved Banner */
+.resolved-banner {
+  display: none;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  border-radius: var(--border-radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.resolved-banner.visible {
+  display: block;
+}
+
+.resolved-banner p {
+  color: #166534;
+  font-weight: 600;
+  font-size: 0.938rem;
+}
+
+.resolved-banner .resolved-time {
+  font-weight: 400;
+  font-size: 0.813rem;
+  color: #15803d;
+  margin-top: 0.25rem;
+}
+
+/* Error */
+.track-error {
+  display: none;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.track-error.visible {
+  display: block;
+}
+
+.track-error-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  color: var(--text-light);
+}
+
+.track-error h3 {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.track-error p {
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+  .track-form {
+    flex-direction: column;
+  }
+  .track-form .btn {
+    width: 100%;
+  }
+  .detail-card {
+    padding: 1.25rem;
+  }
+  .msg-bubble {
+    max-width: 90%;
+  }
+  .reply-form {
+    flex-direction: column;
+  }
+  .reply-form .btn {
+    width: 100%;
+  }
+}

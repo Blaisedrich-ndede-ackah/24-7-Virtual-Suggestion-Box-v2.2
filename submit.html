@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit your feedback anonymously through the 24/7 Virtual Suggestion Box.">
+  <title>Submit Feedback — 24/7 Virtual Suggestion Box</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📬</text></svg>">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/submit.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Virtual Suggestion Box
+      </a>
+      <nav class="site-nav">
+        <a href="/submit.html" class="active">Submit</a>
+        <a href="/track.html">Track</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="submit-page">
+    <div class="container">
+      <div class="submit-header">
+        <h1>Submit Feedback</h1>
+        <p>Share your suggestion, concern, or grievance. Your submission is confidential.</p>
+      </div>
+
+      <div class="submit-form-wrapper">
+        <div class="submit-card">
+          <form id="submit-form" novalidate>
+
+            <!-- Anonymous Toggle -->
+            <div class="anon-toggle">
+              <div class="toggle-wrapper">
+                <label class="toggle">
+                  <input type="checkbox" id="anon-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Submit Anonymously</span>
+              </div>
+              <p class="anon-description">Your identity will be completely hidden. Toggle off to include your name.</p>
+            </div>
+
+            <!-- Name field (hidden by default) -->
+            <div id="name-field-wrapper" class="name-field-wrapper">
+              <div class="form-group">
+                <label class="form-label" for="submitter-name">Your Name</label>
+                <input type="text" id="submitter-name" class="form-input" placeholder="Enter your name (optional)" maxlength="100" autocomplete="off">
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+              <label class="form-label" for="category">Category</label>
+              <select id="category" class="form-select" required>
+                <option value="">Select a category...</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="harassment">Harassment</option>
+                <option value="safety">Safety Concern</option>
+                <option value="policy">Policy Issue</option>
+                <option value="general">General Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <!-- Subject -->
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject</label>
+              <input type="text" id="subject" class="form-input" placeholder="Brief subject of your feedback" maxlength="100" required autocomplete="off">
+              <div class="char-counter" id="subject-counter">0/100</div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea id="message" class="form-textarea" placeholder="Describe your feedback in detail (minimum 20 characters)" minlength="20" maxlength="1000" required></textarea>
+              <div class="char-counter" id="message-counter">0/1000</div>
+            </div>
+
+            <!-- CAPTCHA -->
+            <div class="captcha-section">
+              <div class="captcha-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Security Verification</span>
+              </div>
+              <div class="captcha-question" id="captcha-question">What is 7 + 4?</div>
+              <input type="number" id="captcha-answer" class="form-input captcha-input" placeholder="Answer" required autocomplete="off">
+            </div>
+
+            <!-- Submit -->
+            <div class="submit-actions">
+              <button type="submit" id="submit-btn" class="btn btn-primary submit-btn">
+                <span class="btn-text">Submit Feedback</span>
+                <span class="spinner"></span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div class="modal-backdrop success-modal" id="success-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 style="font-size:1.25rem;">Submission Received!</h2>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <p style="color:var(--text-muted);margin-bottom:1rem;">Your feedback has been submitted successfully. Here is your unique reference token:</p>
+
+      <div class="token-display">
+        <div class="token-value" id="modal-token">VSB-XXXXXX</div>
+      </div>
+
+      <div class="token-warning">
+        ⚠️ SAVE THIS TOKEN — it is the ONLY way to track your submission and view admin replies. We cannot recover it.
+      </div>
+
+      <div class="token-actions">
+        <button class="btn btn-primary btn-sm" id="copy-token-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Token
+        </button>
+        <button class="btn btn-outline btn-sm" id="download-token-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download .txt
+        </button>
+      </div>
+
+      <div class="post-submit-actions">
+        <button class="btn btn-accent btn-sm" id="track-this-btn">Track This Submission</button>
+        <button class="btn btn-ghost btn-sm" id="submit-another-btn">Submit Another</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/track.html">Track Submission</a>
+        </div>
+        <p class="footer-copy">24/7 Virtual Suggestion Box &mdash; Secure. Anonymous. Confidential.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/submit.js"></script>
+</body>
+</html>

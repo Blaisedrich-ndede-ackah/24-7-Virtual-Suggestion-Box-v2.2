@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════
+   SUBMIT.CSS — Submission Form Styles
+   ═══════════════════════════════════════════ */
+
+.submit-page {
+  padding: 2rem 0 4rem;
+}
+
+.submit-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.submit-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.submit-header p {
+  color: var(--text-muted);
+  font-size: 0.938rem;
+}
+
+.submit-form-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.submit-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+}
+
+/* Anonymous Toggle */
+.anon-toggle {
+  background: rgba(15, 118, 110, 0.05);
+  border: 1px solid rgba(15, 118, 110, 0.15);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.anon-toggle .toggle-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.anon-description {
+  font-size: 0.813rem;
+  color: var(--text-muted);
+  margin-left: 3.5rem;
+}
+
+/* Name field slide */
+.name-field-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              margin 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.name-field-wrapper.visible {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+/* Category Select */
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* CAPTCHA */
+.captcha-section {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.captcha-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+
+.captcha-header svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.captcha-header span {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.captcha-question {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.625rem;
+  font-family: var(--font-mono);
+}
+
+.captcha-input {
+  width: 120px;
+}
+
+/* Submit Button */
+.submit-actions {
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+}
+
+.submit-btn .spinner {
+  display: none;
+}
+
+.submit-btn.loading .btn-text {
+  display: none;
+}
+
+.submit-btn.loading .spinner {
+  display: inline-block;
+}
+
+/* ─── Success Modal ─── */
+.success-modal .modal {
+  text-align: center;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--success), var(--success-light));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.success-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.token-display {
+  background: var(--bg);
+  border: 2px dashed var(--primary);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.token-value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.token-warning {
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: var(--border-radius-sm);
+  padding: 0.875rem;
+  margin: 1rem 0;
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+.token-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+
+.post-submit-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .submit-card {
+    padding: 1.25rem;
+  }
+  .token-actions,
+  .post-submit-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .token-actions .btn,
+  .post-submit-actions .btn {
+    width: 100%;
+  }
+}
