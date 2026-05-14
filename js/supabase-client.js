@@ -17,11 +17,11 @@
 
 var SUPABASE_URL = (window._env && window._env.SUPABASE_URL)
   ? window._env.SUPABASE_URL
-  : 'YOUR_SUPABASE_URL';
+  : 'https://hwpauasodtddqqjvwpfc.supabase.co/rest/v1/';
 
 var SUPABASE_ANON_KEY = (window._env && window._env.SUPABASE_ANON_KEY)
   ? window._env.SUPABASE_ANON_KEY
-  : 'YOUR_SUPABASE_ANON_KEY';
+  : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3cGF1YXNvZHRkZHFxanZ3cGZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3MzgzMTcsImV4cCI6MjA5NDMxNDMxN30._IW4UC0Drc1gJnF6irPCaNq6D2zP43AesPiqeYM47QQ';
 
 // Initialize Supabase client (loaded via CDN UMD bundle)
 var supabase;
